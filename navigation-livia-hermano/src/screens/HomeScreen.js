@@ -1,6 +1,6 @@
 // TODO: estilizar esta tela com as cores e identidade visual do seu tema
 // TODO: importar useState e useEffect — adicione a linha abaixo no topo:
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   FlatList,
   SafeAreaView,
@@ -70,27 +70,27 @@ const jogos = [
 ];
 
 // TODO: adicionar { navigation } como parametro quando a navegacao estiver configurada
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   // TODO: estado para o texto digitado na busca
-  // const [busca, setBusca] = useState('');
+  const [busca, setBusca] = useState('');
 
   // TODO: estado com os jogos exibidos na lista — inicia com todos
-  // const [jogosFiltrados, setJogosFiltrados] = useState(jogos);
+  const [jogosFiltrados, setJogosFiltrados] = useState(jogos);
 
   // TODO: filtrar os jogos sempre que o valor de 'busca' mudar
-  // useEffect(() => {
-  //   const resultado = jogos.filter((jogo) =>
-  //     jogo.titulo.toLowerCase().includes(busca.toLowerCase())
-  //   );
-  //   setJogosFiltrados(resultado);
-  // }, [busca]);
+  useEffect(() => {
+     const resultado = jogos.filter((jogo) =>
+       jogo.titulo.toLowerCase().includes(busca.toLowerCase())
+     );
+     setJogosFiltrados(resultado);
+   }, [busca]);
 
   function renderItem({ item }) {
     return (
       <TouchableOpacity
         style={styles.card}
         // TODO: implementar onPress com navigation.navigate passando os dados do jogo
-        // onPress={() => navigation.navigate('Detalhe', { ...item })}
+         onPress={() => navigation.navigate('Detalhe', { ...item })}
       >
         <View style={styles.cardIcone}>
           {/* TODO: substituir pela inicial do titulo ou outro elemento do seu tema */}
@@ -128,7 +128,7 @@ export default function HomeScreen() {
 
       {/* TODO: trocar data={jogos} por data={jogosFiltrados} apos implementar o estado */}
       <FlatList
-        data={jogos}
+        data={jogosFiltrados}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         contentContainerStyle={styles.lista}

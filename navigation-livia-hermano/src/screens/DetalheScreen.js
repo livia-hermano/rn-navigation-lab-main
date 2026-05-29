@@ -1,6 +1,6 @@
 // TODO: estilizar esta tela com as cores e identidade visual do seu tema
 // TODO: importar useState — adicione a linha abaixo no topo:
-// import { useState } from 'react';
+import { useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -22,7 +22,7 @@ const jogoMock = {
 
 // TODO: adicionar { route, navigation } como parametros quando a navegacao estiver configurada
 // Os dados chegam via route.params quando o usuario toca em um jogo na HomeScreen
-export default function DetalheScreen() {
+export default function DetalheScreen({navigation, route}) {
   // Defina os parâmetros de rota, pegando todos os campos presentes no objeto JOGOS definido na HomeScreen
   // const { titulo... } = route?.params ?? jogoMock;
 

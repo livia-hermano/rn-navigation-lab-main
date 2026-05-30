@@ -25,9 +25,10 @@ const jogoMock = {
 export default function DetalheScreen({navigation, route}) {
   // Defina os parâmetros de rota, pegando todos os campos presentes no objeto JOGOS definido na HomeScreen
   // const { titulo... } = route?.params ?? jogoMock;
-
+    const {titulo, genero, plataforma, nota, sinopse} = route?.params ?? jogoMock
   // TODO: estado booleano para controlar se o jogo foi salvo na lista
   // const [isSalvo, setIsSalvo] = useState(false);
+     const [isSalvo, SetIsSalvo] = useState(false)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -61,7 +62,7 @@ export default function DetalheScreen({navigation, route}) {
             onPress={() => setIsSalvo(prev => !prev)}
             style={[styles.botao, isSalvo && styles.botaoAtivo]}
             texto: isSalvo ? 'Remover da Lista' : 'Adicionar a Lista' */}
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={[styles.botao, isSalvo && styles.botaoAtivo]} onPress={() => setIsSalvo(prev => !prev)} texto: isSalvo ? 'Remover da Lista' : 'Adicionar a Lista' >
           <Text style={styles.botaoTexto}>Adicionar a Lista</Text>
         </TouchableOpacity>
       </ScrollView>

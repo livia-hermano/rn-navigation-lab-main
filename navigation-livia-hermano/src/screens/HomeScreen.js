@@ -90,7 +90,7 @@ export default function HomeScreen({navigation}) {
       <TouchableOpacity
         style={styles.card}
         // TODO: implementar onPress com navigation.navigate passando os dados do jogo
-         onPress={() => navigation.navigate('Detalhe', { ...item })}
+         onPress={() => navigation.navigate('Detalhe', { titulo, genero, plataforma, nota, sinopse})}
       >
         <View style={styles.cardIcone}>
           {/* TODO: substituir pela inicial do titulo ou outro elemento do seu tema */}
@@ -121,6 +121,8 @@ export default function HomeScreen({navigation}) {
           style={styles.buscaInput}
           placeholder="Buscar jogo..."
           placeholderTextColor="#999"
+          value={busca}
+          onChangeText={setBusca}
           // value={busca}
           // onChangeText={setBusca}
         />

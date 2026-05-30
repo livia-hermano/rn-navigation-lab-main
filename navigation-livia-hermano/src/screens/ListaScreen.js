@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
 // TODO: apos criar o componente CardJogo, importe-o aqui:
-// import { CardJogo } from '../components';
+ import { CardJogo } from '../components';
 
 // Dados de exemplo para voce visualizar o renderItem funcionando
 // Em um app real, esses itens chegariam via route.params enviados pela DetalheScreen
@@ -28,9 +28,9 @@ export default function ListaScreen({ route }) {
   const [itensSalvos, setItensSalvos] = useState(jogosMock);
 
   // Para receber um jogo salvo da DetalheScreen via route.params:
-  // if (route.params?.novoJogo) {
-  //   setItensSalvos(prev => [...prev, route.params.novoJogo]);
-  // }
+   if (route.params?.novoJogo) {
+     setItensSalvos(prev => [...prev, route.params.novoJogo]);
+   }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,7 +46,7 @@ export default function ListaScreen({ route }) {
           // TODO: crie o arquivo src/components/CardJogo.js
           // O componente CardJogo deve receber as props: titulo, genero, plataforma e nota
           // Depois substitua este bloco por:
-          // <CardJogo titulo={item.titulo} genero={item.genero} plataforma={item.plataforma} nota={item.nota} />
+           <CardJogo titulo={item.titulo} genero={item.genero} plataforma={item.plataforma} nota={item.nota} />
           <View style={styles.card} />
         )}
         ListEmptyComponent={

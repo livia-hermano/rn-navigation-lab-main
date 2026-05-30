@@ -8,7 +8,6 @@ export default function App() {
       <NavigationContainer>
         <AppNavigator></AppNavigator>
       </NavigationContainer>
-      {/* Chamar o Componente do navigation/index.js */}
     </SafeAreaProvider>
   );
 }
